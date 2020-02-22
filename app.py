@@ -4,7 +4,7 @@ from form import WordForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you-will-never-guess'
 
-@app.route('/')
+@app.route('/',methods = ['POST', 'GET'])
 def index():
     return render_template('index.html')
 
