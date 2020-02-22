@@ -4,13 +4,13 @@ from form import WordForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'you-will-never-guess'
 
-@app.route('/',methods = ['POST', 'GET'])
+@app.route('/',methods=['POST','GET'])
 def index():
     return render_template('index.html')
 
 @app.route('/response',methods = ['POST', 'GET'])
 def response():
-    if request.method == 'GET':
+    if request.method == 'POST':
       words = request.form
       response = words['word1']
 
