@@ -10,7 +10,7 @@ def index():
 
 @app.route('/response',methods = ['POST', 'GET'])
 def response():
-    if request.method == 'POST':
+    if request.method == 'GET':
       words = request.form
       response = words['word1']
 
