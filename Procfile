@@ -1,1 +1,1 @@
-web: gunicorn app:app
+flask translate compile; gunicorn app:app
