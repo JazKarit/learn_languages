@@ -19,8 +19,8 @@
     <script>
       function getInput(){
         var word1 = document.getElementById("word1").value;
-        //var word2 = document.getElementById("word2").value;
-        //var word3 = document.getElementById("word3").value;
+        var word2 = document.getElementById("word2").value;
+        var word3 = document.getElementById("word3").value;
       }
     </script>
     <div class="card">
@@ -29,7 +29,7 @@
     <br>
     <form action = "/response" method="POST">
         
-          <h5>Type in a word(s) you want to learn:</h5>
+          <h5>Type in words you want to learn:</h5>
           <div class="input-group">
                 <input type = "text" id = "word1" name = "word1"/>
                 <input type = "text" id = "word2" name = "word2"/>
@@ -45,9 +45,23 @@
     </form>
 
     <br>
-    {% if return_str %}
+    {% if response_list %}
     <h5>Response:</h5>
-    <p> {{ return_str }} </p>
+
+      <p>{%for i in range(0, len)%}
+        {% set flag = namespace(is=false) %}
+          {%for j in range(0,3)%}
+            
+            {%if response_list[i] == special_words[j]%}
+              <b>{{response_list[i]}}</b>
+              {% set flag.is = true%}
+            {%endif%}
+          {%endfor%}
+         {% if flag.is == false %}
+          {{response_list[i]}}
+         {%endif%}
+         {%endfor%}</p>
+      
     {% endif %}
    </div>
   </body>
