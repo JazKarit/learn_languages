@@ -21,10 +21,12 @@
         var word1 = document.getElementById("word1").value;
         var word2 = document.getElementById("word2").value;
         var word3 = document.getElementById("word3").value;
+        var word4 = document.getElementById("word4").value;
+        var word5 = document.getElementById("word5").value;
       }
     </script>
     <div class="card">
-        <div class=card-body>We're using machine learning and AI to build stories around words that you input, and we're translating those words so you can learn.</div>
+        <div class=card-body>We're using AI to build stories around words that you input, and we're translating those words so you can learn.</div>
     </div>
     <br>
     <form action = "/response" method="POST">
@@ -34,6 +36,8 @@
                 <input type = "text" id = "word1" name = "word1"/>
                 <input type = "text" id = "word2" name = "word2"/>
                 <input type = "text" id = "word3" name = "word3"/>
+                <input type = "text" id = "word4" name = "word4"/>
+                <input type = "text" id = "word5" name = "word5"/>
          </div>
             <br>
       <p><input type = "submit" value = "submit" /></p>
@@ -54,6 +58,7 @@
             
             {%if response_list[i] == special_words[j]%}
               <b>{{response_list[i]}}</b>
+              <i color="green">{{translation[j]}}</i>
               {% set flag.is = true%}
             {%endif%}
           {%endfor%}
