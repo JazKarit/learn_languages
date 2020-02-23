@@ -4,7 +4,7 @@ from flask import Flask,render_template,request
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = 'you-will-never-guess'
 
-@app.route('/',methods=['POST','GET'])
+@app.route('/')
 def index():
     return("hello world")
     # return render_template('index.html')

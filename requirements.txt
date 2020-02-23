@@ -1,3 +1,5 @@
 Flask
 Werkzeug
 Gunicorn
+flask_wtf
+wtforms
